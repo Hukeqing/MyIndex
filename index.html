@@ -1,0 +1,160 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="icon" type="image/x-ico" href="favicon.ico" />
+    <title>
+        我的主页
+    </title>
+</head>
+
+<body>
+    <div class="search-box">
+        <select id="selects" class="search-sel" onchange="changes()">
+            <option value="0">Google</option>
+            <option value="1" selected>百度</option>
+            <option value="2">谷歌翻译</option>
+            <option value="3">百度翻译</option>
+            <option value="4">GitHub</option>
+            <option value="5">哔哩哔哩</option>
+            <option value="6">维基百科</option>
+            <option value="7">Wikipedia</option>
+            <option value="8">CSDN</option>
+            <option value="9">CPP</option>
+        </select>
+        <input id="input" class="search-txt" type="text" name="" placeholder="Search in Google">
+        <a id="button" class="search-btn" href="" target="_blank" onclick="searchs()">
+            <img src="search.png" style="width: 20px; height: 20px;" />
+        </a>
+    </div>
+    <script>
+        But = document.getElementById("button");
+        Inp = document.getElementById("input");
+        Sel = document.getElementById("selects");
+        function createSearchEg(urls, se) {
+            var object = new Object();
+            object.urls = urls;
+            object.search_engine = se;
+            return object;
+        }
+        var SearchEg = new Array();
+        SearchEg[0] = createSearchEg("https://www.google.com/search?q=", "Search in Google");
+        SearchEg[1] = createSearchEg("https://www.baidu.com/#ie={inputEncoding}&wd=", "Search in Baidu");
+        SearchEg[2] = createSearchEg("https://translate.google.com/?source=osdd#auto|auto|", "Google Translate");
+        SearchEg[3] = createSearchEg("https://fanyi.baidu.com/#auto/auto/", "Baidu Translate");
+        SearchEg[4] = createSearchEg("https://github.com/search?q=", "Search in GitHub");
+        SearchEg[5] = createSearchEg("https://search.bilibili.com/all?keyword=", "哔哩哔哩 (゜-゜)つロ 干杯~");
+        SearchEg[6] = createSearchEg("https://zh.wikipedia.org/wiki/", "维基百科-中文");
+        SearchEg[7] = createSearchEg("https://en.wikipedia.org/wiki/", "Wikipedia-English");
+        SearchEg[8] = createSearchEg("https://so.csdn.net/so/search/s.do?q=", "Search in CSDN");
+        SearchEg[9] = createSearchEg("https://zh.cppreference.com/mwiki/index.php?search=", "Search in CPP");
+        var curSearch = 0;
+        function searchs() {
+            But.href = SearchEg[curSearch].urls + Inp.value;
+        }
+        function changes() {
+            curSearch = Sel.value;
+            Inp.placeholder = SearchEg[curSearch].search_engine;
+        }
+        document.onkeydown = function EnterPress(e) {
+            if (e.keyCode == 13) {
+                searchs();
+                window.open(But.href);
+            }
+        }
+        changes();
+    </script>
+    <div class="fastlinker" id="fastlinker">
+        <div>
+            <a href="https://www.baidu.com" target="_blank">
+                <img src="img/baidu.ico" class="radiuscenter" />
+                <p>Baidu</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://www.bilibili.com" target="_blank">
+                <img src="img/bilibili.ico" class="radiuscenter" />
+                <p>Bilibili</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://github.com" target="_blank">
+                <img src="img/github.ico" class="radiuscenter" />
+                <p>GitHub</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://fanyi.baidu.com/?aldtype=16047#auto/zh" target="_blank">
+                <img src="img/baidutranslate.ico" class="radiuscenter" />
+                <p>百度翻译</p>
+            </a>
+        </div>
+        <div>
+            <a href="http://icloud.com/" target="_blank">
+                <img src="img/icloud.ico" class="radiuscenter" />
+                <p>iCloud</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://www.apple.com" target="_blank">
+                <img src="img/apple.ico" class="radiuscenter" />
+                <p>Apple</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://www.google.com" target="_blank">
+                <img src="img/google.ico" class="radiuscenter" />
+                <p>Google</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://www.nowcoder.com" target="_blank">
+                <img src="img/nowcoder.ico" class="radiuscenter" />
+                <p>牛客</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://www.csdn.net" target="_blank">
+                <img src="img/csdn.ico" class="radiuscenter" />
+                <p>CSDN</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://www.runoob.com" target="_blank">
+                <img src="img/runoob.ico" class="radiuscenter" />
+                <p>菜鸟教程</p>
+            </a>
+        </div>
+        <div>
+            <a href="http://acm.hdu.edu.cn" target="_blank">
+                <img src="img/hduoj.ico" class="radiuscenter" />
+                <p>HDUOJ</p>
+            </a>
+        </div>
+        <div>
+            <a href="http://124.160.64.163/jwglxt" target="_blank">
+                <img src="img/124.160.64.163.ico" class="radiuscenter" />
+                <p>教务网</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://translate.google.com/?source=osdd#auto|auto|" target="_blank">
+                <img src="img/googletranslate.ico" class="radiuscenter" />
+                <p>谷歌翻译</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://www.luogu.org/" target="_blank">
+                <img src="img/luogu.ico" class="radiuscenter" />
+                <p>洛谷</p>
+            </a>
+        </div>
+    </div>
+    <script>
+        startresize();
+    </script>
+</body>
+
+</html>
