@@ -1,4 +1,4 @@
-var num = 14;
+var num = 18;
 window.onresize = function () {
     var minwidth = 70;
     var maxmum = Math.floor(document.body.clientHeight / 90);
