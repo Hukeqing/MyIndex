@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" type="text/css" media="all" />
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="radialIndicator.js"></script>
+    <script type="text/javascript" src="angular.radialIndicator.js"></script>
     <link rel="icon" type="image/x-ico" href="favicon.ico" />
     <title>
         我的主页
@@ -66,6 +68,33 @@
             }
         }
         changes();
+    </script>
+    <div id="clock" class="clock"></div>
+    <script>
+        var lastSecond = new Date().getSeconds();
+        var flushWaitTime = 0.01;
+        var radialObj = radialIndicator('#clock', {
+            radius: 60,
+            barWidth: 15,
+            barColor: '#FF0000',
+            minValue: 0,
+            maxValue: 60,
+            // fontWeight: 'normal',
+            fontWeight: '700',
+            roundCorner: true,
+            format: function (value) {
+                var date = new Date();
+                return date.getHours() + ':' + date.getMinutes();
+            }
+        });
+        setInterval(function () {
+            lastSecond += flushWaitTime;
+            if (lastSecond >= 60)
+            {
+                lastSecond = 0;
+            }
+            radialObj.value(lastSecond);
+        }, 1000 * flushWaitTime);
     </script>
     <div class="fastlinker" id="fastlinker">
         <div>
