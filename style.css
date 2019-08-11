@@ -35,7 +35,7 @@ body {
     border-radius: 40px;
     padding: 10px;
     transition: 0.4s;
-    opacity: 0.4;
+    opacity: 0.3;
 }
 
 .search-btn {
@@ -88,7 +88,7 @@ body {
     top: 0px;
     bottom: 0px;
     transition: 0.8s;
-    background-color: rgba(96, 96, 96, 0.3);
+    background-color: rgba(96, 96, 96, 0.5);
 }
 .fastlinker:hover {
     opacity: 1;

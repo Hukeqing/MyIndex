@@ -11,3 +11,10 @@ function startresize () {
     var curwidth = Math.ceil(num / maxmum) * minwidth;
     document.getElementById('fastlinker').style.width = curwidth.toString() + "px";
 }
+var lastSecond = new Date().getSeconds();
+var flushWaitTime = 0.01;
+document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) {
+        lastSecond = new Date().getSeconds();
+    }
+});

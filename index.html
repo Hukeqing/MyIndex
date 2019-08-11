@@ -71,8 +71,6 @@
     </script>
     <div id="clock" class="clock"></div>
     <script>
-        var lastSecond = new Date().getSeconds();
-        var flushWaitTime = 0.01;
         var radialObj = radialIndicator('#clock', {
             radius: 60,
             barWidth: 15,
@@ -84,13 +82,15 @@
             roundCorner: true,
             format: function (value) {
                 var date = new Date();
-                return date.getHours() + ':' + date.getMinutes();
+                if (date.getMinutes() >= 10)
+                    return date.getHours() + ':' + date.getMinutes();
+                else
+                    return date.getHours() + ':0' + date.getMinutes();
             }
         });
         setInterval(function () {
             lastSecond += flushWaitTime;
-            if (lastSecond >= 60)
-            {
+            if (lastSecond >= 60) {
                 lastSecond = 0;
             }
             radialObj.value(lastSecond);
