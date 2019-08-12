@@ -82,7 +82,7 @@ body {
 }
 
 .fastlinker {
-    opacity: 0;
+    opacity: 1;
     position: fixed;
     right: 0px;
     top: 0px;
@@ -110,7 +110,7 @@ body {
 .fastlinker p {
     font-size: 15px;
     text-overflow: ellipsis;
-    width: 120px;
+    width: 70px;
     text-align: center;
     overflow:hidden;
 }
@@ -124,7 +124,7 @@ body {
 img.radiuscenter {
     display: block;
     margin-top: 13px;
-    margin-left: 48px;
+    margin-left: 23px;
     width: 24px;
     height: 24px;
     border-radius: 20%;
