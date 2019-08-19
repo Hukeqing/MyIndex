@@ -32,6 +32,7 @@
         </a>
     </div>
     <script>
+        var defaultsel = 1;
         But = document.getElementById("button");
         Inp = document.getElementById("input");
         Sel = document.getElementById("selects");
@@ -56,6 +57,7 @@
         function searchs() {
             But.href = SearchEg[curSearch].urls + Inp.value;
             Inp.value = "";
+            Sel.value = defaultsel;
         }
         function changes() {
             curSearch = Sel.value;
