@@ -1,4 +1,4 @@
-var num = 18;
+var num = 19;
 var lastSecond = new Date().getSeconds();
 window.onresize = function () {
     var minwidth = 70;
