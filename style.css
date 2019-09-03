@@ -4,27 +4,23 @@ body {
     background-image: url('img/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 100%,100%;
 }
-
 .search-box:hover {
     width: 400px;
     opacity: 1;
 }
-
 .search-box:hover > .search-txt {
     width: 240px;
     padding: 0 6px;
 }
-
 .search-box:hover > .search-sel {
     width: 100px;
     padding: 0 6px;
 }
-
 .search-box:hover > .search-btn {
     background: white;
 }
-
 .search-box {
     position: absolute;
     top: 50%;
@@ -38,7 +34,6 @@ body {
     transition: 0.4s;
     opacity: 0.3;
 }
-
 .search-btn {
     color: #e84118;
     float: right;
@@ -51,7 +46,6 @@ body {
     align-items: center;
     transition: 0.4s;
 }
-
 .search-txt {
     border: none;
     background: none;
@@ -64,7 +58,6 @@ body {
     line-height: 40px;
     width: 0px;
 }
-
 .search-sel {
     border: none;
     background: none;
@@ -81,7 +74,6 @@ body {
     text-align: center;
     text-align-last: center;
 }
-
 .fastlinker {
     opacity: 0;
     position: fixed;
