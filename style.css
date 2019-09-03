@@ -3,6 +3,7 @@ body {
     padding: 0;
     background-image: url('img/background.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .search-box:hover {
