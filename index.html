@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-    <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="radialIndicator.js"></script>
     <script type="text/javascript" src="angular.radialIndicator.js"></script>
+    <script type="text/javascript" src="main.js"></script>
     <link rel="icon" type="image/x-ico" href="favicon.ico" />
     <title>
         我的主页
@@ -73,32 +73,11 @@
         }
         changes();
     </script>
-    <div id="clock" class="clock"></div>
+    <div onclick="" style="width: 150px; height: 150px;">
+        <div id="clock" class="clock"></div>
+    </div>
     <script>
-        var radialObj = radialIndicator('#clock', {
-            radius: 60,
-            barWidth: 15,
-            barColor: '#FF0000',
-            minValue: 0,
-            maxValue: 60,
-            // fontWeight: 'normal',
-            fontWeight: '700',
-            roundCorner: true,
-            format: function (value) {
-                var date = new Date();
-                if (date.getMinutes() >= 10)
-                    return date.getHours() + ':' + date.getMinutes();
-                else
-                    return date.getHours() + ':0' + date.getMinutes();
-            }
-        });
-        setInterval(function () {
-            lastSecond += flushWaitTime;
-            if (lastSecond >= 60) {
-                lastSecond = 0;
-            }
-            radialObj.value(lastSecond);
-        }, 1000 * flushWaitTime);
+        startClock();
     </script>
     <div class="fastlinker" id="fastlinker">
         <div>
@@ -219,6 +198,12 @@
             <a href="https://cn.vjudge.net" target="_blank">
                 <img src="img/virtualjudge.ico" class="radiuscenter" />
                 <p>VJ</p>
+            </a>
+        </div>
+        <div>
+            <a href="https://tools.imiku.me" target="_blank">
+                <img src="img/imiku.ico" class="radiuscenter" />
+                <p>Miku</p>
             </a>
         </div>
     </div>
