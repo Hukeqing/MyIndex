@@ -41,7 +41,7 @@ function getFormat() {
         else
             return date.getHours() + ':0' + date.getMinutes();
     } else if (mode == 1) {
-        return (date.getMonth() + 1) + '月' + date.getDate() + '日';
+        return (date.getMonth() + 1) + '.' + date.getDate() + '';
     } else if (mode == 2) {
         return "星期" + week[date.getDay()];
     }
