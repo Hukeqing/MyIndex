@@ -16,7 +16,7 @@
     <div class="search-box">
         <select id="selects" class="search-sel" onchange="changes()">
             <option value="0">Google</option>
-            <option value="1" selected>百度</option>
+            <option value="1">百度</option>
             <option value="2">谷歌翻译</option>
             <option value="3">百度翻译</option>
             <option value="4">GitHub</option>
@@ -25,60 +25,16 @@
             <option value="7">Wikipedia</option>
             <option value="8">CSDN</option>
             <option value="9">CPP</option>
+            <option value="10">OEIS</option>
         </select>
         <input id="input" class="search-txt" type="text" name="" placeholder="Search in Google">
         <a id="button" class="search-btn" href="" target="_blank" onclick="searchs()">
             <img src="search.png" style="width: 20px; height: 20px;" />
         </a>
     </div>
-    <script>
-        var defaultsel = 1;
-        But = document.getElementById("button");
-        Inp = document.getElementById("input");
-        Sel = document.getElementById("selects");
-        function createSearchEg(urls, se) {
-            var object = new Object();
-            object.urls = urls;
-            object.search_engine = se;
-            return object;
-        }
-        var SearchEg = new Array();
-        SearchEg[0] = createSearchEg("https://www.google.com/search?q=", "Search in Google");
-        SearchEg[1] = createSearchEg("https://www.baidu.com/#ie={inputEncoding}&wd=", "Search in Baidu");
-        SearchEg[2] = createSearchEg("https://translate.google.com/?source=osdd#auto|auto|", "Google Translate");
-        SearchEg[3] = createSearchEg("https://fanyi.baidu.com/#auto/auto/", "Baidu Translate");
-        SearchEg[4] = createSearchEg("https://github.com/search?q=", "Search in GitHub");
-        SearchEg[5] = createSearchEg("https://search.bilibili.com/all?keyword=", "哔哩哔哩 (゜-゜)つロ 干杯~");
-        SearchEg[6] = createSearchEg("https://zh.wikipedia.org/wiki/", "维基百科-中文");
-        SearchEg[7] = createSearchEg("https://en.wikipedia.org/wiki/", "Wikipedia-English");
-        SearchEg[8] = createSearchEg("https://so.csdn.net/so/search/s.do?q=", "Search in CSDN");
-        SearchEg[9] = createSearchEg("https://zh.cppreference.com/mwiki/index.php?search=", "Search in CPP");
-        var curSearch = 0;
-        function searchs() {
-            But.href = SearchEg[curSearch].urls + Inp.value;
-            Inp.value = "";
-            Sel.value = defaultsel;
-            curSearch = defaultsel;
-            Inp.placeholder = SearchEg[curSearch].search_engine;
-        }
-        function changes() {
-            curSearch = Sel.value;
-            Inp.placeholder = SearchEg[curSearch].search_engine;
-        }
-        document.onkeydown = function EnterPress(e) {
-            if (e.keyCode == 13) {
-                searchs();
-                window.open(But.href);
-            }
-        }
-        changes();
-    </script>
     <div onclick="" style="width: 150px; height: 150px;">
         <div id="clock" class="clock"></div>
     </div>
-    <script>
-        startClock();
-    </script>
     <div class="fastlinker" id="fastlinker">
         <div>
             <a href="https://www.baidu.com" target="_blank">
@@ -195,7 +151,7 @@
             </a>
         </div>
         <div>
-            <a href="https://cn.vjudge.net" target="_blank">
+            <a href="https://vjudge.net" target="_blank">
                 <img src="img/virtualjudge.ico" class="radiuscenter" />
                 <p>VJ</p>
             </a>
@@ -208,6 +164,8 @@
         </div>
     </div>
     <script>
+        search_init();
+        startClock();
         cnt();
         startresize();
     </script>
