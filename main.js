@@ -23,7 +23,7 @@ function search_init() {
     But = document.getElementById("button");
     Inp = document.getElementById("input");
     Sel = document.getElementById("selects");
-    changes();
+    Sel.value = defaultsel;
 }
 function searchs() {
     But.href = SearchEg[curSearch].urls + Inp.value;
@@ -33,7 +33,6 @@ function searchs() {
     Inp.placeholder = SearchEg[curSearch].search_engine;
 }
 function changes() {
-    Sel.value = defaultsel;
     curSearch = Sel.value;
     Inp.placeholder = SearchEg[curSearch].search_engine;
 }
