@@ -24,8 +24,7 @@ function search_init() {
     Inp = document.getElementById("input");
     Sel = document.getElementById("selects");
     Sel.value = defaultsel;
-    curSearch = defaultsel;
-    Inp.placeholder = SearchEg[curSearch].search_engine;
+    changes();
 }
 function searchs() {
     But.href = SearchEg[curSearch].urls + Inp.value;
@@ -130,4 +129,11 @@ function startClock() {
         }
         radialObj.value(lastSecond);
     }, 1000 * flushWaitTime);
+}
+// together
+function init() {
+    search_init();
+    startClock();
+    cnt();
+    startresize();
 }
