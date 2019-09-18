@@ -24,6 +24,8 @@ function search_init() {
     Inp = document.getElementById("input");
     Sel = document.getElementById("selects");
     Sel.value = defaultsel;
+    curSearch = defaultsel;
+    Inp.placeholder = SearchEg[curSearch].search_engine;
 }
 function searchs() {
     But.href = SearchEg[curSearch].urls + Inp.value;
