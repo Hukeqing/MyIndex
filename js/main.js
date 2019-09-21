@@ -42,6 +42,9 @@ document.onkeydown = function EnterPress(e) {
         searchs();
         window.open(But.href);
     }
+    if (e.keyCode == 8) {
+        LockScreen(false);
+    }
 }
 // fastlinker
 var num = 0;
@@ -130,7 +133,6 @@ function startClock() {
         radialObj.value(lastSecond);
     }, 1000 * flushWaitTime);
 }
-// together
 function init() {
     search_init();
     startClock();

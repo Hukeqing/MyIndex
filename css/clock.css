@@ -1,0 +1,10 @@
+.clock {
+    opacity: 0;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    transition: 0.5s;
+}
+.clock:hover {
+    opacity: 1;
+}

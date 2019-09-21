@@ -1,0 +1,49 @@
+.fastlinker {
+    opacity: 0;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    transition: 0.8s;
+    background-color: rgba(96, 96, 96, 0.5);
+}
+.fastlinker:hover {
+    opacity: 1;
+}
+.fastlinker div {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    background-image: url('../img/circle.png');
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    justify-content: center;
+    display: flex;
+    float: left;
+}
+.fastlinker p {
+    font-size: 15px;
+    text-overflow: ellipsis;
+    width: 70px;
+    text-align: center;
+    overflow:hidden;
+}
+.fastlinker a {
+    text-decoration: none;
+    /* font-family: 'STHeiti'; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: white;
+}
+img.radiuscenter {
+    display: block;
+    margin-top: 13px;
+    margin-left: 23px;
+    width: 24px;
+    height: 24px;
+    border-radius: 20%;
+    /* background-color: darkgrey; */
+}

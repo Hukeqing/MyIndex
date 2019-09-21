@@ -2,17 +2,28 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-    <script type="text/javascript" src="radialIndicator.js"></script>
-    <script type="text/javascript" src="angular.radialIndicator.js"></script>
-    <script type="text/javascript" src="main.js"></script>
     <link rel="icon" type="image/x-ico" href="favicon.ico" />
+    
+    <link rel="stylesheet" href="css/fastlinker.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/clock.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/search.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/SimpleButton.css" type="text/css" media="all" />
+
+    <script type="text/javascript" src="js/radialIndicator.js"></script>
+    <script type="text/javascript" src="js/angular.radialIndicator.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/button.js"></script>
+    
     <title>
         我的主页
     </title>
 </head>
 
 <body>
+    <div class="buttonDiv">
+        <button class="pulse" onclick="LockScreen(true)">Lock</button>
+    </div>
     <div class="search-box">
         <select id="selects" class="search-sel" onchange="changes()">
             <option value="0" selected>Google</option>
@@ -163,6 +174,7 @@
             </a>
         </div>
     </div>
+    <div id="lockscreen" class="lock"></div>
     <script>
         init();
     </script>
