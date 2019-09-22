@@ -21,18 +21,23 @@ function exitFullscreen() {
         document.webkitExitFullscreen();
     }
 }
+var reminds = new Array();
+reminds[0] = '<h1 onclick="UNLockScreen()">记得打卡</h1>'
 //********* 锁屏DIV ***************************
-function LockScreen(tag) {
+function LockScreen(tag, inner) {
     if (tag) //锁屏
     {
         var lockdiv = document.getElementById("lockscreen");
         lockdiv.style.display = "block";
-        fullScreen();
+        if (inner != -1) {
+            lockdiv.innerHTML = reminds[inner];
+        }
+        // fullScreen();
     } else {
         //解屏
         var lockdiv = document.getElementById("lockscreen");
         lockdiv.style.display = "none";
-        exitFullscreen();
+        // exitFullscreen();
     }
 }
 function UNLockScreen() {

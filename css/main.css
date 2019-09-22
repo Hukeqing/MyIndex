@@ -6,13 +6,3 @@ body {
     background-repeat: no-repeat;
     background-position: 100% 100%;
 }
-div.lock {
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 10000;
-    display: none;
-    background-color: black;
-}
