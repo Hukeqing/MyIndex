@@ -22,7 +22,8 @@ function exitFullscreen() {
     }
 }
 var reminds = new Array();
-reminds[0] = '<h1 onclick="UNLockScreen()">记得打卡</h1>'
+reminds[0] = '';
+reminds[1] = '<h1 onclick="UNLockScreen()">记得打卡</h1>';
 //********* 锁屏DIV ***************************
 function LockScreen(tag, inner) {
     if (tag) //锁屏
@@ -31,6 +32,9 @@ function LockScreen(tag, inner) {
         lockdiv.style.display = "block";
         if (inner != -1) {
             lockdiv.innerHTML = reminds[inner];
+        } else {
+            var DIYhint = document.getElementById("DIYhint");
+            lockdiv.innerHTML = '<h1>' + DIYhint.value + '</h1>';
         }
         // fullScreen();
     } else {
