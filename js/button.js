@@ -24,6 +24,7 @@ function exitFullscreen() {
 var reminds = new Array();
 reminds[0] = '';
 reminds[1] = '<h1 onclick="UNLockScreen()">记得打卡</h1>';
+reminds[2] = '<iframe src="iframe/lockclock/index.html" width="100%" height="100%" frameborder="0"><p>您的浏览器不支持  iframe 标签。</p></iframe>'
 //********* 锁屏DIV ***************************
 function LockScreen(tag, inner) {
     if (tag) //锁屏
