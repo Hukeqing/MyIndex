@@ -1,0 +1,9 @@
+div.music {
+    opacity: 0;
+    position: fixed;
+    top: 10px;
+    transition: 0.5s;
+}
+div.music:hover {
+    opacity: 1;
+}
