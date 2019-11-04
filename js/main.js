@@ -3,7 +3,7 @@ document.onkeydown = function EnterPress(e) {
         searchs();
         window.open(But.href);
     }
-    if (e.keyCode == 8) {
+    if (e.keyCode == 8 || e.keyCode == 27) {
         LockScreen(false);
     }
 }
