@@ -26,7 +26,7 @@ function search_init() {
     changes();
 }
 function searchs() {
-    But.href = SearchEg[curSearch].urls + Inp.value;
+    But.href = SearchEg[curSearch].urls + encodeURIComponent(Inp.value);
     Inp.value = "";
     Sel.value = defaultsel;
     curSearch = defaultsel;
