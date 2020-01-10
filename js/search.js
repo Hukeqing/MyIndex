@@ -1,12 +1,14 @@
 var defaultsel = 1;
-var SearchEg = new Array();
+var SearchEg = [];
 var curSearch = 0;
+
 function createSearchEg(urls, se) {
-    var object = new Object();
+    var object = {};
     object.urls = urls;
     object.search_engine = se;
     return object;
 }
+
 function search_init() {
     SearchEg[0] = createSearchEg("https://www.google.com/search?q=", "Search in Google");
     SearchEg[1] = createSearchEg("https://www.baidu.com/#ie={inputEncoding}&wd=", "Search in Baidu");
@@ -25,6 +27,7 @@ function search_init() {
     Sel.value = defaultsel;
     changes();
 }
+
 function searchs() {
     But.href = SearchEg[curSearch].urls + encodeURIComponent(Inp.value);
     Inp.value = "";
@@ -32,6 +35,7 @@ function searchs() {
     curSearch = defaultsel;
     Inp.placeholder = SearchEg[curSearch].search_engine;
 }
+
 function changes() {
     curSearch = Sel.value;
     Inp.placeholder = SearchEg[curSearch].search_engine;

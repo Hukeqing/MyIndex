@@ -21,17 +21,17 @@ function exitFullscreen() {
         document.webkitExitFullscreen();
     }
 }
-var reminds = new Array();
+var reminds = [];
 reminds[0] = '';
 reminds[1] = '<h1 onclick="UNLockScreen()">记得打卡</h1>';
-reminds[2] = '<iframe src="iframe/lockclock/index.html" width="100%" height="100%" frameborder="0"><p>您的浏览器不支持  iframe 标签。</p></iframe>'
+reminds[2] = '<iframe src="iframe/lockclock/index.html" width="100%" height="100%" frameborder="0"><p>您的浏览器不支持  iframe 标签。</p></iframe>';
 //********* 锁屏DIV ***************************
 function LockScreen(tag, inner) {
     if (tag) //锁屏
     {
         var lockdiv = document.getElementById("lockscreen");
         lockdiv.style.display = "block";
-        if (inner != -1) {
+        if (inner !== -1) {
             lockdiv.innerHTML = reminds[inner];
         } else {
             var DIYhint = document.getElementById("DIYhint");

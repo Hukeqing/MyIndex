@@ -1,14 +1,14 @@
 document.onkeydown = function EnterPress(e) {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
         searchs();
         window.open(But.href);
     }
-    if (e.keyCode == 8 || e.keyCode == 27) {
+    if (e.keyCode === 8 || e.keyCode === 27) {
         LockScreen(false);
     }
-}
+};
 window.addEventListener('message', function (e) {
-    if (e.data == 'endLock') {
+    if (e.data === 'endLock') {
         UNLockScreen();
     }
 }, false);
@@ -24,20 +24,22 @@ document.addEventListener('visibilitychange', function () {
 });
 var mode = 0;
 var week = ["日", "一", "二", "三", "四", "五", "六"];
+
 // clock 中间显示
 function getFormat() {
     var date = new Date();
-    if (mode == 0) {
+    if (mode === 0) {
         if (date.getMinutes() >= 10)
             return date.getHours() + ':' + date.getMinutes();
         else
             return date.getHours() + ':0' + date.getMinutes();
-    } else if (mode == 1) {
+    } else if (mode === 1) {
         return (date.getMonth() + 1) + '.' + date.getDate() + '';
-    } else if (mode == 2) {
+    } else if (mode === 2) {
         return "星期" + week[date.getDay()];
     }
 }
+
 function startClock() {
     // 定义时钟
     var radialObj = radialIndicator('#clock', {
@@ -59,15 +61,15 @@ function startClock() {
         mode += 1;
         if (mode >= 3)
             mode = 0;
-    }
+    };
     sp.onmouseout = function () {
-        if (mode != 0)
+        if (mode !== 0)
             mouseMoveOut = setTimeout("mode = 0;", 1000);
-    }
+    };
     sp.onmouseover = function () {
-        if (mode != 0)
+        if (mode !== 0)
             clearTimeout(mouseMoveOut);
-    }
+    };
     // 时钟 value 更新
     setInterval(function () {
         lastSecond += flushWaitTime;
@@ -77,6 +79,7 @@ function startClock() {
         radialObj.value(lastSecond);
     }, 1000 * flushWaitTime);
 }
+
 function init() {
     search_init();
     startClock();
