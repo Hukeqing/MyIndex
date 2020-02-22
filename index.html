@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/search.css" type="text/css" media="all" />
 
     <script type="text/javascript" src="js/angular.radialIndicator.js"></script>
+    <script type="text/javascript" src="js/background.js"></script>
     <script type="text/javascript" src="js/button.js"></script>
     <script type="text/javascript" src="js/fastlinker.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
@@ -25,7 +26,7 @@
     </title>
 </head>
 
-<body>
+<body id='body'>
     <div class="search-box">
         <select id="selects" class="search-sel" onchange="changes()">
             <option value="0" selected>Google</option>
@@ -42,7 +43,7 @@
         </select>
         <input id="input" class="search-txt" type="text" name="" placeholder="Search in Google">
         <a id="button" class="search-btn" href="" target="_blank" onclick="searchs()">
-            <img src="search.png" style="width: 20px; height: 20px;" />
+            <img src="basic/search.png" style="width: 20px; height: 20px;" />
         </a>
     </div>
     <div onclick="" style="width: 150px; height: 150px;">
@@ -187,16 +188,8 @@
         </div>
     </div>
     <div class="buttonDiv">
-        <button class="fill" onclick="LockScreen(true, 0)">Empty</button>
-        <button class="fill" onclick="LockScreen(true, 2)">Time</button>
-        <div class="DIVButton">
-            <div class="search__container">
-                <input id="DIYhint" class="search__input" type="text" placeholder="add a hint?">
-            </div>
-            <button class="pulse" onclick="LockScreen(true, -1)">DIY</button>
-        </div>
+        <button class="fill" onclick="changeBackground()" style="font-weight: 800; color: white;">Change</button>
     </div>
-    <div id="lockscreen" class="lock"></div>
     <script>
         init();
     </script>
