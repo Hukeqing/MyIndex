@@ -9,3 +9,7 @@ function changeBackground() {
     document.getElementById("body").style.backgroundImage = "url('basic/background/" + ans + ".jpg')"
     cur = ans;
 }
+
+function downloadImg() {
+    window.open('basic/background/' + cur + '.jpg');
+}
