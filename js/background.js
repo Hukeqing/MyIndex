@@ -1,4 +1,4 @@
-var len = 8;
+var len = 9;
 var cur = -1;
 function changeBackground() {
     var ans = Math.floor(Math.random() * len);
