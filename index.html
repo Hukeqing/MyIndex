@@ -13,12 +13,15 @@
     <link rel="stylesheet" href="css/music.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/search.css" type="text/css" media="all" />
 
-    <script type="text/javascript" src="js/angular.radialIndicator.js"></script>
+    <script type="text/javascript" src="js/extra/angular.radialIndicator.js"></script>
+    <script type="text/javascript" src="js/extra/radialIndicator.js"></script>
+
     <script type="text/javascript" src="js/background.js"></script>
-    <script type="text/javascript" src="js/button.js"></script>
+    <!-- <script type="text/javascript" src="js/button.js"></script> -->
+    <script type="text/javascript" src="js/chookie.js"></script>
+    <script type="text/javascript" src="js/clock.js"></script>
     <script type="text/javascript" src="js/fastlinker.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/radialIndicator.js"></script>
     <script type="text/javascript" src="js/search.js"></script>
 
     <title>
@@ -29,17 +32,6 @@
 <body id='body'>
     <div class="search-box">
         <select id="selects" class="search-sel" onchange="changes()">
-            <option value="0" selected>Google</option>
-            <option value="1">百度</option>
-            <option value="2">谷歌翻译</option>
-            <option value="3">百度翻译</option>
-            <option value="4">GitHub</option>
-            <option value="5">哔哩哔哩</option>
-            <option value="6">维基百科</option>
-            <option value="7">Wikipedia</option>
-            <option value="8">CSDN</option>
-            <option value="9">CPP</option>
-            <option value="10">OEIS</option>
         </select>
         <input id="input" class="search-txt" type="text" name="" placeholder="Search in Google">
         <a id="button" class="search-btn" href="" target="_blank" onclick="searchs()">
@@ -49,143 +41,7 @@
     <div onclick="" style="width: 150px; height: 150px;">
         <div id="clock" class="clock"></div>
     </div>
-    <!-- <div class="music">
-        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=280 height=52
-            src="http://music.163.com/outchain/player?type=0&id=2670344061&auto=0&height=32"></iframe>
-    </div> -->
     <div class="fastlinker" id="fastlinker">
-        <div>
-            <a href="https://www.baidu.com" target="_blank">
-                <img src="img/baidu.ico" class="radiuscenter" />
-                <p>Baidu</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://www.bilibili.com" target="_blank">
-                <img src="img/bilibili.ico" class="radiuscenter" />
-                <p>Bilibili</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://github.com" target="_blank">
-                <img src="img/github.ico" class="radiuscenter" />
-                <p>GitHub</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://fanyi.baidu.com/?aldtype=16047#auto/zh" target="_blank">
-                <img src="img/baidutranslate.ico" class="radiuscenter" />
-                <p>百度翻译</p>
-            </a>
-        </div>
-        <div>
-            <a href="http://icloud.com/" target="_blank">
-                <img src="img/icloud.ico" class="radiuscenter" />
-                <p>iCloud</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://www.apple.com" target="_blank">
-                <img src="img/apple.ico" class="radiuscenter" />
-                <p>Apple</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://www.google.com" target="_blank">
-                <img src="img/google.ico" class="radiuscenter" />
-                <p>Google</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://www.nowcoder.com" target="_blank">
-                <img src="img/nowcoder.ico" class="radiuscenter" />
-                <p>牛客</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://www.csdn.net" target="_blank">
-                <img src="img/csdn.ico" class="radiuscenter" />
-                <p>CSDN</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://www.runoob.com" target="_blank">
-                <img src="img/runoob.ico" class="radiuscenter" />
-                <p>菜鸟教程</p>
-            </a>
-        </div>
-        <div>
-            <a href="http://acm.hdu.edu.cn" target="_blank">
-                <img src="img/hduoj.ico" class="radiuscenter" />
-                <p>HDUOJ</p>
-            </a>
-        </div>
-        <div>
-            <a href="http://124.160.64.163/jwglxt" target="_blank">
-                <img src="img/124.160.64.163.ico" class="radiuscenter" />
-                <p>教务网</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://translate.google.com/?source=osdd#auto|auto|" target="_blank">
-                <img src="img/googletranslate.ico" class="radiuscenter" />
-                <p>谷歌翻译</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://www.luogu.com.cn/" target="_blank">
-                <img src="img/luogu.ico" class="radiuscenter" />
-                <p>洛谷</p>
-            </a>
-        </div>
-        <div>
-            <a href="http://oeis.org/" target="_blank">
-                <img src="img/oeis.ico" class="radiuscenter" />
-                <p>OEIS</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://www.desmos.com/calculator" target="_blank">
-                <img src="img/desmos.ico" class="radiuscenter" />
-                <p>desmos</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://youtube.com/" target="_blank">
-                <img src="img/youtube.ico" class="radiuscenter" />
-                <p>Youtube</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://twitter.com/home/" target="_blank">
-                <img src="img/twitter.ico" class="radiuscenter" />
-                <p>Twitter</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://www.cnblogs.com" target="_blank">
-                <img src="img/cnblogs.ico" class="radiuscenter" />
-                <p>博客园</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://vjudge.net" target="_blank">
-                <img src="img/virtualjudge.ico" class="radiuscenter" />
-                <p>VJ</p>
-            </a>
-        </div>
-        <div>
-            <a href="https://tools.imiku.me" target="_blank">
-                <img src="img/imiku.ico" class="radiuscenter" />
-                <p>Miku</p>
-            </a>
-        </div>
-        <div>
-            <a href="http://codeforces.com" target="_blank">
-                <img src="img/codeforces.ico" class="radiuscenter" />
-                <p>CF</p>
-            </a>
-        </div>
     </div>
     <div class="buttonDiv">
         <button class="fill" onclick="changeBackground()" style="font-weight: 800; color: white;">Change</button>
