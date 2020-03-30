@@ -85,5 +85,5 @@ function init() {
     startClock();
     cnt();
     startresize();
-    changeBackground();
+    initValue();
 }
