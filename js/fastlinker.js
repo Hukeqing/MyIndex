@@ -40,7 +40,7 @@ function fastlinker_init() {
     fastlinker_data_init();
     fl = document.getElementById("fastlinker");
     for (var i in fastlinkerList) {
-        if (dislikefastlinker.indexOf(i) == -1) continue;
+        if (dislikefastlinker.indexOf(i) != -1) continue;
         fl.innerHTML += '<div><a href="' + fastlinkerList[i].urls + '" target="_blank"><img src="img/' + fastlinkerList[i].iconName + '.ico" class="radiuscenter" /><p>' + fastlinkerList[i].name + '</p></a></div>';
         fastlinkerNum++;
     }
