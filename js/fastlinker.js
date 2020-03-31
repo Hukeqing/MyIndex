@@ -72,7 +72,7 @@ function fastlinker_preference_init() {
     var html_in = document.getElementById("fastlinker_preference");
     var str = '';
     for (var i = 0; i < fastlinkerList.length; ++i) {
-        str += '<label><input type="checkbox" name="fastlinker_pre" value="' + i + '" ' + (dislikefastlinker.indexOf(i) == -1 ? 'checked' : '') + ' />' + fastlinkerList[i].name + '</label><br>';
+        str += '<label><input type="checkbox" name="fastlinker_pre" value="' + i + '" ' + (dislikefastlinker.indexOf(i.toString()) == -1 ? 'checked' : '') + ' />' + fastlinkerList[i].name + '</label><br>';
     }
     html_in.innerHTML = str;
 }
