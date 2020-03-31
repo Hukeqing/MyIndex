@@ -1,7 +1,8 @@
-var defaultsel = 1;
+var defaultSel = 1;
+var dislikeSearch = 0;
+
 var SearchEg = new Array();
 var curSearch = 0;
-var dislikeSearch = 0;
 
 function createSearchEg(name, urls, se) {
     var object = {};
@@ -11,7 +12,7 @@ function createSearchEg(name, urls, se) {
     return object;
 }
 
-function search_init() {
+function search_data_init() {
     initSearchCookie();
     SearchEg.push(createSearchEg("Google", "https://www.google.com/search?q=", "Search in Google"));
     SearchEg.push(createSearchEg("百度", "https://www.baidu.com/#ie={inputEncoding}&wd=", "Search in Baidu"));
@@ -24,24 +25,28 @@ function search_init() {
     SearchEg.push(createSearchEg("CSDN", "https://so.csdn.net/so/search/s.do?q=", "Search in CSDN"));
     SearchEg.push(createSearchEg("CPP", "https://zh.cppreference.com/mwiki/index.php?search=", "Search in CPP"));
     SearchEg.push(createSearchEg("OEIS", "http://oeis.org/search?q=", "1,2,3,6,11,23,47,106,235"));
+}
 
+function search_init() {
+    search_data_init();
+    curSearch = defaultSel;
     But = document.getElementById("button");
     Inp = document.getElementById("input");
     Sel = document.getElementById("selects");
 
-    for (var i in SearchEg) {
+    for (var i = 0; i < SearchEg.length; ++i) {
         if ((1 << i) & dislikeSearch) continue;
         Sel.innerHTML += '<option value="' + i + '">' + SearchEg[i].name + '</option>'
     }
-    Sel.value = defaultsel;
+    Sel.value = defaultSel;
     changes();
 }
 
 function searchs() {
     But.href = SearchEg[curSearch].urls + encodeURIComponent(Inp.value);
     Inp.value = "";
-    Sel.value = defaultsel;
-    curSearch = defaultsel;
+    Sel.value = defaultSel;
+    curSearch = defaultSel;
     Inp.placeholder = SearchEg[curSearch].search_engine;
 }
 
@@ -52,4 +57,43 @@ function changes() {
 
 function initSearchCookie() {
     dislikeSearch = getCookie('dislikeSe');
+    defaultSel = getCookie('defaultSel');
+    if (dislikeSearch === "") dislikeSearch = 0;
+    else setCookie('dislikeSe', dislikeSearch);
+    if (defaultSel === "") defaultSel = 1;
+    else setCookie('defaultSel', defaultSel);
+}
+
+function search_preference_init() {
+    search_data_init();
+    var html_in = document.getElementById("search_preference");
+    var str = '';
+    for (var i = 0; i < SearchEg.length; ++i) {
+        str += '<label><input type="checkbox" name="search_pre" value="' + i + '" ' + (((1 << i) & dislikeSearch) ? '' : 'checked') + ' />' + SearchEg[i].name + '</label><br>';
+    }
+    str += '默认搜索引擎：<select id="defaultSel">';
+    for (var i = 0; i < SearchEg.length; ++i) {
+        str += '<option value="' + i + '">' + SearchEg[i].name + '</option>'
+    }
+    str += '</select>';
+    html_in.innerHTML = str;
+    document.getElementById("defaultSel").value = defaultSel;
+}
+
+function save_search_preference() {
+    var check = document.getElementsByName("search_pre");
+    dislikeSearch = 0;
+    for (var i = 0; i < check.length; ++i) {
+        if (!check[i].checked) {
+            dislikeSearch += (1 << i);
+        }
+    }
+    defaultSel = parseInt(document.getElementById("defaultSel").value);
+    if ((1 << defaultSel) & dislikeSearch) {
+        window.alert('哎呀呀，你选择的默认搜索引擎却不在勾选的列表里啊');
+        return false;
+    }
+    setCookie('dislikeSe', dislikeSearch);
+    setCookie('defaultSel', defaultSel);
+    return true;
 }

@@ -27,3 +27,10 @@ function init() {
     fastlinker_init();
     initBG();
 }
+
+window.onresize = function () {
+    var minwidth = 70;
+    var maxmum = Math.floor(document.body.clientHeight / 90);
+    var curwidth = Math.ceil(fastlinkerNum / maxmum) * minwidth;
+    document.getElementById('fastlinker').style.width = curwidth.toString() + "px";
+};

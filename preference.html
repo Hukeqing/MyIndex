@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="css/button.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/checkbox.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/preference.css" type="text/css" media="all" />
+
+    <script type="text/javascript" src="js/chookie.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
+    <script type="text/javascript" src="js/fastlinker.js"></script>
+</head>
+
+<body id='body'>
+    <script>
+        function save_preference() {
+            if (save_search_preference() && save_fastlinker_preference()) {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+    <div>
+        <h1>偏好设置</h1>
+        <fieldset>
+            <h2>搜索引擎偏好设置：</h2>
+            <div id='search_preference'>
+            </div>
+        </fieldset>
+        <fieldset>
+            <h2>快捷方式偏好设置：</h2>
+            <div id='fastlinker_preference'>
+            </div>
+        </fieldset>
+        <div>
+            <button onclick="save_preference()" style="font-weight: 800; color: gray; font-size: larger;">
+                Save and Back
+            </button>
+            <button onclick="window.location.href = 'index.html';"
+                style="font-weight: 800; color: gray; font-size: larger;">
+                Not Save and Back
+            </button>
+        </div>
+        <div style="height: 300px;">
+        </div>
+    </div>
+    <div class="footer" id="footer">
+        <p class="centers">
+            Copyright &copy; 2019-2020.Mauve All rights reserved.
+            <br>联系我<a href="mailto:keqing.hu@icloud.com?Subject=Hello%20Mauve" class="noline">keqing.hu@icloud.com</a>
+        </p>
+    </div>
+    <script>
+        search_preference_init();
+        fastlinker_preference_init();
+    </script>
+</body>
+
+</html>

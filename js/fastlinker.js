@@ -1,5 +1,6 @@
 var fastlinkerNum = 0;
 var fastlinkerList = new Array();
+var dislikefastlinker;
 
 function createFastlinker(name, urls, iconName) {
     var object = {};
@@ -9,7 +10,8 @@ function createFastlinker(name, urls, iconName) {
     return object;
 }
 
-function fastlinker_init() {
+function fastlinker_data_init() {
+    initFastlinkerCookie();
     fastlinkerList.push(createFastlinker('Baidu', 'https://www.baidu.com', 'baidu'));
     fastlinkerList.push(createFastlinker('Bilibili', 'https://www.bilibili.com', 'bilibili'));
     fastlinkerList.push(createFastlinker('GitHub', 'https://github.com', 'github'));
@@ -32,25 +34,58 @@ function fastlinker_init() {
     fastlinkerList.push(createFastlinker('VJ', 'https://vjudge.net', 'virtualjudge'));
     fastlinkerList.push(createFastlinker('Miku', 'https://tools.imiku.me', 'imiku'));
     fastlinkerList.push(createFastlinker('CF', 'http://codeforces.com', 'codeforces'));
-
-    fl = document.getElementById("fastlinker");
-    for (var i in fastlinkerList) {
-        fl.innerHTML += '<div><a href="' + fastlinkerList[i].urls + '" target="_blank"><img src="img/' + fastlinkerList[i].iconName + '.ico" class="radiuscenter" /><p>' + fastlinkerList[i].name + '</p></a></div>'
-    }
-    fastlinkerNum = fastlinkerList.length;
-    startresize();
 }
 
-window.onresize = function () {
-    var minwidth = 70;
-    var maxmum = Math.floor(document.body.clientHeight / 90);
-    var curwidth = Math.ceil(fastlinkerNum / maxmum) * minwidth;
-    document.getElementById('fastlinker').style.width = curwidth.toString() + "px";
-};
+function fastlinker_init() {
+    fastlinker_data_init();
+    fl = document.getElementById("fastlinker");
+    for (var i in fastlinkerList) {
+        if (dislikefastlinker.indexOf(i) == -1) continue;
+        fl.innerHTML += '<div><a href="' + fastlinkerList[i].urls + '" target="_blank"><img src="img/' + fastlinkerList[i].iconName + '.ico" class="radiuscenter" /><p>' + fastlinkerList[i].name + '</p></a></div>';
+        fastlinkerNum++;
+    }
+    startresize();
+}
 
 function startresize() {
     var minwidth = 70;
     var maxmum = Math.floor(document.body.clientHeight / 90);
     var curwidth = Math.ceil(fastlinkerNum / maxmum) * minwidth;
     document.getElementById('fastlinker').style.width = curwidth.toString() + "px";
+}
+
+function initFastlinkerCookie() {
+    dislikefastlinker = getCookie('dislikeFa');
+    if (dislikeSearch === "") {
+        dislikefastlinker = new Array();
+        for (var i = 22; i < fastlinkerList.length; ++i)
+            dislikefastlinker.push(i);
+        setCookie('dislikeFa', dislikefastlinker.join(';'));
+    } else {
+        setCookie('dislikeFa', dislikefastlinker);
+        dislikefastlinker = dislikefastlinker.split(';');
+    }
+}
+
+function fastlinker_preference_init() {
+    fastlinker_data_init();
+    var html_in = document.getElementById("fastlinker_preference");
+    var str = '';
+    for (var i = 0; i < fastlinkerList.length; ++i) {
+        str += '<label><input type="checkbox" name="fastlinker_pre" value="' + i + '" ' + (dislikefastlinker.indexOf(i) == -1 ? 'checked' : '') + ' />' + fastlinkerList[i].name + '</label><br>';
+    }
+    html_in.innerHTML = str;
+}
+
+function save_fastlinker_preference() {
+    var check = document.getElementsByName("fastlinker_pre");
+    dislikefastlinker = new Array();
+    for (var i = 0; i < check.length; ++i) {
+        if (!check[i].checked) {
+            dislikefastlinker.push(i);
+        }
+    }
+    console.log(dislikefastlinker);
+    setCookie('dislikeFa', dislikefastlinker.join(';'));
+    return true;
 }
