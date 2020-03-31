@@ -60,10 +60,10 @@ function initFastlinkerCookie() {
         dislikefastlinker = new Array();
         for (var i = 22; i < fastlinkerList.length; ++i)
             dislikefastlinker.push(i);
-        setCookie('dislikeFa', dislikefastlinker.join(';'));
+        setCookie('dislikeFa', dislikefastlinker.join(','));
     } else {
         setCookie('dislikeFa', dislikefastlinker);
-        dislikefastlinker = dislikefastlinker.split(';');
+        dislikefastlinker = dislikefastlinker.split(',');
     }
 }
 
@@ -86,6 +86,6 @@ function save_fastlinker_preference() {
         }
     }
     console.log(dislikefastlinker);
-    setCookie('dislikeFa', dislikefastlinker.join(';'));
+    setCookie('dislikeFa', dislikefastlinker.join(','));
     return true;
 }
