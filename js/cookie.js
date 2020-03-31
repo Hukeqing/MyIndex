@@ -1,3 +1,5 @@
+version = "2.0";
+
 function setCookie(name, value) {
     var d = new Date();
     d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000));
@@ -10,7 +12,7 @@ function deleteCookie(name) {
 }
 
 function logNewVersion() {
-    window.alert("版本：1，更新公告：\n增加了添加不喜欢的壁纸功能，点击左下角的“dislike”按钮就可以添加当前壁纸哦。\n如果想要清空之前的选择，可以点击左下角的“clear”按钮就可以清空哦")
+    window.alert("版本：2.0，更新公告：\n增加了完整的偏好设置系统，现在可以根据自己的需要个性化本主页啦~\n所有的设置数据会被保存在本地，数据仅保留7天，超过7天后会被自动删除。")
 }
 
 function getCookie(cname) {

@@ -2,7 +2,6 @@ var len = 10;
 var cur = -1;
 var dislikeBG = 0;
 var dict = new Array();
-var version = 1;
 
 function changeBackground() {
     var ans = Math.floor(Math.random() * dict.length);
