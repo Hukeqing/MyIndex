@@ -24,7 +24,6 @@ function initFastlinkerCookie() {
 }
 
 function fastlinker_data_init() {
-    initFastlinkerCookie();
     fastlinkerList.push(createFastlinker('Baidu', 'https://www.baidu.com', 'baidu'));
     fastlinkerList.push(createFastlinker('Bilibili', 'https://www.bilibili.com', 'bilibili'));
     fastlinkerList.push(createFastlinker('GitHub', 'https://github.com', 'github'));
@@ -48,6 +47,7 @@ function fastlinker_data_init() {
     fastlinkerList.push(createFastlinker('Miku', 'https://tools.imiku.me', 'imiku'));
     fastlinkerList.push(createFastlinker('CF', 'http://codeforces.com', 'codeforces'));
     fastlinkerList.push(createFastlinker('微博', 'https://weibo.com/', 'weibo'));
+    initFastlinkerCookie();
 }
 
 function fastlinker_init() {
