@@ -1,4 +1,4 @@
-version = "2.0";
+version = "2.1";
 
 function setCookie(name, value) {
     var d = new Date();
@@ -12,7 +12,8 @@ function deleteCookie(name) {
 }
 
 function logNewVersion() {
-    window.alert("版本：2.0，更新公告：\n增加了完整的偏好设置系统，现在可以根据自己的需要个性化本主页啦~\n所有的设置数据会被保存在本地，数据仅保留7天，超过7天后会被自动删除。")
+    // window.alert("版本：2.0，更新公告：\n增加了完整的偏好设置系统，现在可以根据自己的需要个性化本主页啦~\n所有的设置数据会被保存在本地，数据仅保留7天，超过7天后会被自动删除。");
+    window.alert("版本：2.1，更新公告：\n增加了5张星空风格的壁纸\n增加了一个快捷链接：微博\n如果有希望增加的壁纸、链接、搜索方式，可以通过我的邮箱来联系我哦~");
 }
 
 function getCookie(cname) {
