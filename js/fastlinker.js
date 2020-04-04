@@ -10,6 +10,19 @@ function createFastlinker(name, urls, iconName) {
     return object;
 }
 
+function initFastlinkerCookie() {
+    dislikefastlinker = getCookie('dislikeFa');
+    if (dislikefastlinker === "") {
+        dislikefastlinker = new Array();
+        for (var i = 22; i < fastlinkerList.length; ++i)
+            dislikefastlinker.push(i);
+        setCookie('dislikeFa', dislikefastlinker.join(','));
+    } else {
+        setCookie('dislikeFa', dislikefastlinker);
+        dislikefastlinker = dislikefastlinker.split(',');
+    }
+}
+
 function fastlinker_data_init() {
     initFastlinkerCookie();
     fastlinkerList.push(createFastlinker('Baidu', 'https://www.baidu.com', 'baidu'));
@@ -34,12 +47,13 @@ function fastlinker_data_init() {
     fastlinkerList.push(createFastlinker('VJ', 'https://vjudge.net', 'virtualjudge'));
     fastlinkerList.push(createFastlinker('Miku', 'https://tools.imiku.me', 'imiku'));
     fastlinkerList.push(createFastlinker('CF', 'http://codeforces.com', 'codeforces'));
+    fastlinkerList.push(createFastlinker('微博', 'https://weibo.com/', 'weibo'));
 }
 
 function fastlinker_init() {
     fastlinker_data_init();
     fl = document.getElementById("fastlinker");
-    for (var i in fastlinkerList) {
+    for (var i = 0; i < fastlinkerList.length; ++i) {
         if (dislikefastlinker.indexOf(i) != -1) continue;
         fl.innerHTML += '<div><a href="' + fastlinkerList[i].urls + '" target="_blank"><img src="img/' + fastlinkerList[i].iconName + '.ico" class="radiuscenter" /><p>' + fastlinkerList[i].name + '</p></a></div>';
         fastlinkerNum++;
@@ -52,19 +66,6 @@ function startresize() {
     var maxmum = Math.floor(document.body.clientHeight / 90);
     var curwidth = Math.ceil(fastlinkerNum / maxmum) * minwidth;
     document.getElementById('fastlinker').style.width = curwidth.toString() + "px";
-}
-
-function initFastlinkerCookie() {
-    dislikefastlinker = getCookie('dislikeFa');
-    if (dislikeSearch === "") {
-        dislikefastlinker = new Array();
-        for (var i = 22; i < fastlinkerList.length; ++i)
-            dislikefastlinker.push(i);
-        setCookie('dislikeFa', dislikefastlinker.join(','));
-    } else {
-        setCookie('dislikeFa', dislikefastlinker);
-        dislikefastlinker = dislikefastlinker.split(',');
-    }
 }
 
 function fastlinker_preference_init() {
