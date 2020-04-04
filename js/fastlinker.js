@@ -20,6 +20,9 @@ function initFastlinkerCookie() {
     } else {
         setCookie('dislikeFa', dislikefastlinker);
         dislikefastlinker = dislikefastlinker.split(',');
+        for (var i = 0; i < fastlinkerList.length; ++i) {
+            dislikefastlinker[i] = parseInt(dislikefastlinker[i]);
+        }
     }
 }
 
