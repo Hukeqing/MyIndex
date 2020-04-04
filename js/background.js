@@ -1,4 +1,4 @@
-var len = 10;
+var len = 15;
 var cur = -1;
 var dislikeBG = 0;
 var dict = new Array();
