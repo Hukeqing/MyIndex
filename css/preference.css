@@ -20,3 +20,12 @@ a.noline {
     text-decoration: none;
     /* cursor: default; */
 }
+img.radiuscenter {
+    /* display: block; */
+    /* margin-top: 13px; */
+    /* margin-left: 23px; */
+    width: 24px;
+    height: 24px;
+    border-radius: 20%;
+    /* background-color: darkgrey; */
+}

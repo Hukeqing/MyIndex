@@ -50,6 +50,7 @@ function fastlinker_data_init() {
     fastlinkerList.push(createFastlinker('Miku', 'https://tools.imiku.me', 'imiku'));
     fastlinkerList.push(createFastlinker('CF', 'http://codeforces.com', 'codeforces'));
     fastlinkerList.push(createFastlinker('微博', 'https://weibo.com/', 'weibo'));
+    fastlinkerList.push(createFastlinker('百度网盘', 'https://pan.baidu.com/', 'baiduwanpan'));
     initFastlinkerCookie();
 }
 
@@ -74,10 +75,13 @@ function startresize() {
 function fastlinker_preference_init() {
     fastlinker_data_init();
     var html_in = document.getElementById("fastlinker_preference");
-    var str = '';
+    var str = '<table border="1">';
     for (var i = 0; i < fastlinkerList.length; ++i) {
-        str += '<label><input type="checkbox" name="fastlinker_pre" value="' + i + '" ' + (dislikefastlinker.indexOf(i) == -1 ? 'checked' : '') + ' />' + fastlinkerList[i].name + '</label><br>';
+        if (i % 5 == 0) str += '<tr>'
+        str += '<td><label><input type="checkbox" name="fastlinker_pre" value="' + i + '" ' + (dislikefastlinker.indexOf(i) == -1 ? 'checked' : '') + ' /><img src="img/' + fastlinkerList[i].iconName + '.ico" class="radiuscenter" />' + fastlinkerList[i].name + '</label></td>';
+        if (i % 5 == 4) str += '</tr>';
     }
+    str += '</table>'
     html_in.innerHTML = str;
 }
 
