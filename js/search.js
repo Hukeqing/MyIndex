@@ -1,5 +1,6 @@
 var defaultSel = 1;
 var dislikeSearch = 0;
+var search_unextend = 0;
 
 var SearchEg = new Array();
 var curSearch = 0;
@@ -40,6 +41,11 @@ function search_init() {
     }
     Sel.value = defaultSel;
     changes();
+    if (search_unextend) {
+        document.getElementById('search-div').style.width='400px';
+        document.getElementById('selects').style.width='100px';
+        document.getElementById('input').style.width='240px';
+    }
 }
 
 function searchs() {
@@ -58,10 +64,13 @@ function changes() {
 function initSearchCookie() {
     dislikeSearch = getCookie('dislikeSe');
     defaultSel = getCookie('defaultSel');
+    search_unextend = getCookie('search_unextend');
     if (dislikeSearch === "") dislikeSearch = 0;
     else setCookie('dislikeSe', dislikeSearch);
     if (defaultSel === "") defaultSel = 1;
     else setCookie('defaultSel', defaultSel);
+    if (search_unextend === "") search_unextend = 0;
+    else setCookie('search_unextend', search_unextend);
 }
 
 function search_preference_init() {
@@ -71,11 +80,11 @@ function search_preference_init() {
     for (var i = 0; i < SearchEg.length; ++i) {
         str += '<label><input type="checkbox" name="search_pre" value="' + i + '" ' + (((1 << i) & dislikeSearch) ? '' : 'checked') + ' />' + SearchEg[i].name + '</label><br>';
     }
-    str += '默认搜索引擎：<select id="defaultSel">';
+    str += '<hr>默认搜索引擎：<select id="defaultSel">';
     for (var i = 0; i < SearchEg.length; ++i) {
         str += '<option value="' + i + '">' + SearchEg[i].name + '</option>'
     }
-    str += '</select>';
+    str += '</select><br><label><input type="checkbox" id="search_unextend" ' + (search_unextend == 1 ? 'checked' : '') + '>搜索框不再缩放</label>';
     html_in.innerHTML = str;
     document.getElementById("defaultSel").value = defaultSel;
 }
@@ -95,5 +104,6 @@ function save_search_preference() {
     }
     setCookie('dislikeSe', dislikeSearch);
     setCookie('defaultSel', defaultSel);
+    setCookie('search_unextend', document.getElementById('search_unextend').checked);
     return true;
 }
