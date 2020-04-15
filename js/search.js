@@ -41,7 +41,7 @@ function search_init() {
     }
     Sel.value = defaultSel;
     changes();
-    if (search_unextend) {
+    if (search_unextend == 1) {
         document.getElementById('search-div').style.width = '400px';
         document.getElementById('selects').style.width = '100px';
         document.getElementById('input').style.width = '240px';
