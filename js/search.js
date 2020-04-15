@@ -42,9 +42,9 @@ function search_init() {
     Sel.value = defaultSel;
     changes();
     if (search_unextend) {
-        document.getElementById('search-div').style.width='400px';
-        document.getElementById('selects').style.width='100px';
-        document.getElementById('input').style.width='240px';
+        document.getElementById('search-div').style.width = '400px';
+        document.getElementById('selects').style.width = '100px';
+        document.getElementById('input').style.width = '240px';
     }
 }
 
@@ -104,6 +104,6 @@ function save_search_preference() {
     }
     setCookie('dislikeSe', dislikeSearch);
     setCookie('defaultSel', defaultSel);
-    setCookie('search_unextend', document.getElementById('search_unextend').checked);
+    setCookie('search_unextend', document.getElementById('search_unextend').checked ? 1 : 0);
     return true;
 }
