@@ -1,4 +1,3 @@
-var fastlinkerNum = 0;
 var fastlinkerData = new Array();
 var fastlinkerList;
 
@@ -61,7 +60,6 @@ function fastlinker_init() {
     for (var i = 0; i < fastlinkerList.length; ++i) {
         var cur = fastlinkerList[i];
         fl.innerHTML += '<div><a href="' + fastlinkerData[cur].urls + '" target="_blank"><img src="img/' + fastlinkerData[cur].iconName + '.ico" class="radiuscenter" /><p>' + fastlinkerData[cur].name + '</p></a></div>';
-        fastlinkerNum++;
     }
     // for (var i = 0; i < fastlinkerList.length; ++i) {
     //     if (dislikefastlinker.indexOf(i) == -1) continue;
@@ -74,24 +72,25 @@ function fastlinker_init() {
 function startresize() {
     var minwidth = 70;
     var maxmum = Math.floor(document.body.clientHeight / 90);
-    var curwidth = Math.ceil(fastlinkerNum / maxmum) * minwidth;
+    var curwidth = Math.ceil(fastlinkerList.length / maxmum) * minwidth;
     document.getElementById('fastlinker').style.width = curwidth.toString() + "px";
 }
 
 function fastlinker_preference_init() {
     fastlinker_data_init();
     var html_in = document.getElementById("fastlinker_preference");
-    var str = '<ul id="sortable">';
+    var str = '<div style=" float: left; width: 150px;"><h3 style="color: red; width: 100px; text-align: center;">显示</h3>';
+    str += '<ul id="sortable1" class="connectedSortable">';
     for (var i = 0; i < fastlinkerList.length; ++i) {
         var cur = fastlinkerList[i];
         str += '<li class="sort" name="fastlinker_pre" value=' + cur + '><img src="img/' + fastlinkerData[cur].iconName + '.ico" class="radiuscenter" />' + fastlinkerData[cur].name + '</li>';
     }
-    str += '<li style="border: 5px solid red; width: 250px; cursor:pointer;" name="fastlinker_pre" value=-1>————以上的图标将会显示————<ul>'
-    str += '</ul>'
+    str += '</ul> </div><div style=" float: left;  width: 150px;"><h3 style="color: red; width: 100px; text-align: center;">隐藏</h3><ul id="sortable2"  class="connectedSortable">'
     for (var i = 0; i < fastlinkerData.length; ++i) {
         if (fastlinkerList.indexOf(i) != -1) continue;
         str += '<li class="sort" name="fastlinker_pre" value=' + i + '><img src="img/' + fastlinkerData[i].iconName + '.ico" class="radiuscenter" />' + fastlinkerData[i].name + '</li>';
     }
+    str += '</ul></div>'
     html_in.innerHTML = str;
 }
 

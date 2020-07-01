@@ -20,6 +20,7 @@ a.noline {
     text-decoration: none;
     /* cursor: default; */
 }
+
 img.radiuscenter {
     /* display: block; */
     /* margin-top: 13px; */
@@ -32,7 +33,13 @@ img.radiuscenter {
 
 li.sort {
     border: 1px solid;
-    margin-left: 70px;
     width: 100px;
-    cursor:pointer;
+    height: 30px;
+    cursor: pointer;
+}
+
+li.sort_on {
+    border: 3px solid blue;
+    width: 120px;
+    cursor: pointer;
 }

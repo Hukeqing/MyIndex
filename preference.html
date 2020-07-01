@@ -60,7 +60,18 @@
     <script>
         search_preference_init();
         fastlinker_preference_init();
-        $("#sortable").sortable();
+        // $("#sortable").sortable();
+        $(".sort").mouseenter(function () {
+            $(this).addClass("sort_on");
+        });
+        $(".sort").mouseleave(function () {
+            $(this).removeClass("sort_on");
+        })
+        $(function () {
+            $("#sortable1, #sortable2").sortable({
+                connectWith: ".connectedSortable"
+            }).disableSelection();
+        });
     </script>
 </body>
 
