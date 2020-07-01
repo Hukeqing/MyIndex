@@ -42,5 +42,5 @@ function downloadImg() {
 
 function initBGCookie() {
     dislikeBG = getCookie('dislikeBG');
-    setCookie('dislikeBG');
+    setCookie('dislikeBG', dislikeBG);
 }
