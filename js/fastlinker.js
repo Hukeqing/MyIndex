@@ -20,7 +20,7 @@ function initFastlinkerCookie() {
     } else {
         setCookie('FL', fastlinkerList);
         fastlinkerList = fastlinkerList.split(',');
-        for (var i = 0; i < fastlinkerData.length; ++i) {
+        for (var i = 0; i < fastlinkerList.length; ++i) {
             fastlinkerList[i] = parseInt(fastlinkerList[i]);
         }
     }
