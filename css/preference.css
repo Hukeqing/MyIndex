@@ -29,3 +29,10 @@ img.radiuscenter {
     border-radius: 20%;
     /* background-color: darkgrey; */
 }
+
+li.sort {
+    border: 1px solid;
+    margin-left: 70px;
+    width: 100px;
+    cursor:pointer;
+}
