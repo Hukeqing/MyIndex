@@ -59,6 +59,7 @@ function fastlinker_init() {
     // TODO: add support for new fastlinker
     for (var i = 0; i < fastlinkerList.length; ++i) {
         var cur = fastlinkerList[i];
+        if (cur == -1) break;
         fl.innerHTML += '<div><a href="' + fastlinkerData[cur].urls + '" target="_blank"><img src="img/' + fastlinkerData[cur].iconName + '.ico" class="radiuscenter" /><p>' + fastlinkerData[cur].name + '</p></a></div>';
     }
     // for (var i = 0; i < fastlinkerList.length; ++i) {
@@ -82,6 +83,7 @@ function fastlinker_preference_init() {
     var str = '<div class="sort"><h3 style="color: red; width: 100px; text-align: center;">显示</h3><ul id="sortable1" class="connectedSortable" name="fastlinker_pre">';
     for (var i = 0; i < fastlinkerList.length; ++i) {
         var cur = fastlinkerList[i];
+        if (cur == -1) break;
         str += '<li class="sort" value=' + cur + '><img src="img/' + fastlinkerData[cur].iconName + '.ico" class="radiuscenter" />' + fastlinkerData[cur].name + '</li>';
     }
     str += '</ul> </div><div class="sort"><h3 style="color: red; width: 100px; text-align: center;">隐藏</h3><ul id="sortable2"  class="connectedSortable">'
@@ -100,7 +102,10 @@ function save_fastlinker_preference() {
         if (check[i].value == -1) break;
         fastlinkerList.push(check[i].value);
     }
-    console.log(fastlinkerList);
-    setCookie('FL', fastlinkerList.join(','));
+    if (fastlinkerList.length == 0) {
+        setCookie('FL', -1);
+    } else {
+        setCookie('FL', fastlinkerList.join(','));
+    }
     return true;
 }
