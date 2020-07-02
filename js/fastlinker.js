@@ -79,13 +79,12 @@ function startresize() {
 function fastlinker_preference_init() {
     fastlinker_data_init();
     var html_in = document.getElementById("fastlinker_preference");
-    var str = '<div style=" float: left; width: 150px;"><h3 style="color: red; width: 100px; text-align: center;">显示</h3>';
-    str += '<ul id="sortable1" class="connectedSortable" name="fastlinker_pre">';
+    var str = '<div class="sort"><h3 style="color: red; width: 100px; text-align: center;">显示</h3><ul id="sortable1" class="connectedSortable" name="fastlinker_pre">';
     for (var i = 0; i < fastlinkerList.length; ++i) {
         var cur = fastlinkerList[i];
         str += '<li class="sort" value=' + cur + '><img src="img/' + fastlinkerData[cur].iconName + '.ico" class="radiuscenter" />' + fastlinkerData[cur].name + '</li>';
     }
-    str += '</ul> </div><div style=" float: left;  width: 150px;"><h3 style="color: red; width: 100px; text-align: center;">隐藏</h3><ul id="sortable2"  class="connectedSortable">'
+    str += '</ul> </div><div class="sort"><h3 style="color: red; width: 100px; text-align: center;">隐藏</h3><ul id="sortable2"  class="connectedSortable">'
     for (var i = 0; i < fastlinkerData.length; ++i) {
         if (fastlinkerList.indexOf(i) != -1) continue;
         str += '<li class="sort" value=' + i + '><img src="img/' + fastlinkerData[i].iconName + '.ico" class="radiuscenter" />' + fastlinkerData[i].name + '</li>';

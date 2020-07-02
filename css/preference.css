@@ -31,6 +31,21 @@ img.radiuscenter {
     /* background-color: darkgrey; */
 }
 
+div.sort {
+    float: left;
+    width: 120px;
+}
+
+div.sort ul {
+    background: #eee;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
+    background: #eee;
+    padding: 5px;
+}
+
 li.sort {
     border: 1px solid;
     width: 100px;
@@ -42,4 +57,9 @@ li.sort_on {
     border: 3px solid blue;
     width: 120px;
     cursor: pointer;
+}
+
+li.placeholder {
+    height: 15px;
+    background: rgb(255, 255, 119);
 }
