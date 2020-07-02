@@ -1,13 +1,13 @@
 // clock
-var flushWaitTime = 0.01;       // 时钟刷新时间，时钟精确到多少秒
-var lastSecond = new Date().getSeconds();   // 秒数，精确到小数
+const flushWaitTime = 0.01;       // 时钟刷新时间，时钟精确到多少秒
+let lastSecond = new Date().getSeconds();   // 秒数，精确到小数
 
-var mode = 0;
-var week = ["日", "一", "二", "三", "四", "五", "六"];
+let mode = 0;
+const week = ["日", "一", "二", "三", "四", "五", "六"];
 
 // clock 中间显示
 function getFormat() {
-    var date = new Date();
+    const date = new Date();
     if (mode === 0) {
         if (date.getMinutes() >= 10)
             return date.getHours() + ':' + date.getMinutes();
@@ -22,7 +22,7 @@ function getFormat() {
 
 function startClock() {
     // 定义时钟
-    var radialObj = radialIndicator('#clock', {
+    const radialObj = radialIndicator('#clock', {
         radius: 60,
         barWidth: 15,
         barColor: '#FF0000',
@@ -31,7 +31,7 @@ function startClock() {
         // fontWeight: 'normal',
         fontWeight: '700',
         roundCorner: true,
-        format: function (value) {
+        format: function () {
             return getFormat();
         }
     });

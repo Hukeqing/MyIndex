@@ -1,9 +1,9 @@
-version = "2.3";
+version = "2.4";
 
 function setCookie(name, value) {
-    var d = new Date();
+    const d = new Date();
     d.setTime(d.getTime() + (7 * 24 * 60 * 60 * 1000));
-    var expires = ";expires=" + d.toUTCString();
+    const expires = ";expires=" + d.toUTCString();
     document.cookie = name + '=' + value + expires;
 }
 
@@ -20,19 +20,19 @@ function logNewVersion() {
 }
 
 function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i].trim();
-        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    const name = cname + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        const c = ca[i].trim();
+        if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
     }
     return "";
 }
 
 function clearCookie() {
     if (confirm("确定清除您在本网页上的所有操作吗？")) {
-        var data = document.cookie.split(';');
-        for (var item in data) {
+        let data = document.cookie.split(';');
+        for (const item in data) {
             deleteCookie(data[item].split('=')[0]);
         }
         window.location.reload();
@@ -40,7 +40,7 @@ function clearCookie() {
 }
 
 function init_Cookie() {
-    if (getCookie('version') != version) {
+    if (getCookie('version') !== version) {
         logNewVersion();
         setCookie('version', version);
     }

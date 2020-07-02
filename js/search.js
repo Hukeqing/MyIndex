@@ -1,9 +1,9 @@
-var defaultSel = 1;
-var dislikeSearch = 0;
-var search_unextend = 0;
+let defaultSel = 1;
+let dislikeSearch = 0;
+let search_unextend = 0;
 
-var SearchEg = new Array();
-var curSearch = 0;
+let SearchEg = [];
+let curSearch = 0;
 
 function createSearchEg(name, urls, se) {
     var object = {};
@@ -41,7 +41,7 @@ function search_init() {
     }
     Sel.value = defaultSel;
     changes();
-    if (search_unextend == 1) {
+    if (search_unextend === 1) {
         document.getElementById('search-div').style.width = '400px';
         document.getElementById('selects').style.width = '100px';
         document.getElementById('input').style.width = '240px';
@@ -74,17 +74,18 @@ function initSearchCookie() {
 }
 
 function search_preference_init() {
+    let i;
     search_data_init();
     var html_in = document.getElementById("search_preference");
     var str = '';
-    for (var i = 0; i < SearchEg.length; ++i) {
+    for (i = 0; i < SearchEg.length; ++i) {
         str += '<label><input type="checkbox" name="search_pre" value="' + i + '" ' + (((1 << i) & dislikeSearch) ? '' : 'checked') + ' />' + SearchEg[i].name + '</label><br>';
     }
     str += '<hr>默认搜索引擎：<select id="defaultSel">';
-    for (var i = 0; i < SearchEg.length; ++i) {
+    for (i = 0; i < SearchEg.length; ++i) {
         str += '<option value="' + i + '">' + SearchEg[i].name + '</option>'
     }
-    str += '</select><br><label><input type="checkbox" id="search_unextend" ' + (search_unextend == 1 ? 'checked' : '') + '>搜索框不再缩放</label>';
+    str += '</select><br><label><input type="checkbox" id="search_unextend" ' + (search_unextend === 1 ? 'checked' : '') + '>搜索框不再缩放</label>';
     html_in.innerHTML = str;
     document.getElementById("defaultSel").value = defaultSel;
 }

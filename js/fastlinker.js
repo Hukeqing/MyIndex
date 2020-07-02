@@ -1,8 +1,9 @@
-var fastlinkerData = new Array();
+var fastlinkerData = [];
 var fastlinkerList;
 
 function createFastlinker(name, urls, iconName) {
-    var object = {};
+    let object;
+    object = {};
     object.name = name;
     object.urls = urls;
     object.iconName = iconName;
@@ -10,18 +11,19 @@ function createFastlinker(name, urls, iconName) {
 }
 
 function initFastlinkerCookie() {
+    let i;
     fastlinkerList = getCookie('FL');
     if (fastlinkerList === "") {
-        fastlinkerList = new Array();
-        for (var i = 0; i < 22; ++i)
+        fastlinkerList = [];
+        for (i = 0; i < 22; ++i)
             fastlinkerList.push(i);
         setCookie('FL', fastlinkerList.join(','));
     } else if (fastlinkerList === "-1") {
-        fastlinkerList = new Array();
+        fastlinkerList = [];
     } else {
         setCookie('FL', fastlinkerList);
         fastlinkerList = fastlinkerList.split(',');
-        for (var i = 0; i < fastlinkerList.length; ++i) {
+        for (i = 0; i < fastlinkerList.length; ++i) {
             fastlinkerList[i] = parseInt(fastlinkerList[i]);
         }
     }
@@ -61,11 +63,11 @@ function fastlinker_init() {
     // TODO: add support for new fastlinker
     for (var i = 0; i < fastlinkerList.length; ++i) {
         var cur = fastlinkerList[i];
-        fl.innerHTML += '<div><a href="' + fastlinkerData[cur].urls + '" target="_blank"><img src="img/' + fastlinkerData[cur].iconName + '.ico" class="radiuscenter" /><p>' + fastlinkerData[cur].name + '</p></a></div>';
+        fl.innerHTML += '<div><a href="' + fastlinkerData[cur].urls + '" target="_blank"><img src="img/' + fastlinkerData[cur].iconName + '.ico" class="radius_center"  alt="快捷方式"/><p>' + fastlinkerData[cur].name + '</p></a></div>';
     }
     // for (var i = 0; i < fastlinkerList.length; ++i) {
     //     if (dislikefastlinker.indexOf(i) == -1) continue;
-    //     fl.innerHTML += '<div><a href="' + fastlinkerList[i].urls + '" target="_blank"><img src="img/' + fastlinkerList[i].iconName + '.ico" class="radiuscenter" /><p>' + fastlinkerList[i].name + '</p></a></div>';
+    //     fl.innerHTML += '<div><a href="' + fastlinkerList[i].urls + '" target="_blank"><img src="img/' + fastlinkerList[i].iconName + '.ico" class="radius_center" /><p>' + fastlinkerList[i].name + '</p></a></div>';
     //     fastlinkerNum++;
     // }
     startresize();
@@ -79,17 +81,18 @@ function startresize() {
 }
 
 function fastlinker_preference_init() {
+    let i;
     fastlinker_data_init();
-    var html_in = document.getElementById("fastlinker_preference");
-    var str = '<div class="sort"><h3 style="color: red; width: 100px; text-align: center;">显示</h3><ul id="sortable1" class="connectedSortable" name="fastlinker_pre">';
-    for (var i = 0; i < fastlinkerList.length; ++i) {
+    const html_in = document.getElementById("fastlinker_preference");
+    let str = '<div class="sort"><h3 style="color: red; width: 100px; text-align: center;">显示</h3><ul id="sortable1" class="connectedSortable" name="fastlinker_pre">';
+    for (i = 0; i < fastlinkerList.length; ++i) {
         var cur = fastlinkerList[i];
-        str += '<li class="sort" value=' + cur + '><img src="img/' + fastlinkerData[cur].iconName + '.ico" class="radiuscenter" />' + fastlinkerData[cur].name + '</li>';
+        str += '<li class="sort" value=' + cur + '><img src="img/' + fastlinkerData[cur].iconName + '.ico" class="radius_center"  alt="图标"/>' + fastlinkerData[cur].name + '</li>';
     }
     str += '</ul> </div><div class="sort"><h3 style="color: red; width: 100px; text-align: center;">隐藏</h3><ul id="sortable2"  class="connectedSortable">'
-    for (var i = 0; i < fastlinkerData.length; ++i) {
-        if (fastlinkerList.indexOf(i) != -1) continue;
-        str += '<li class="sort" value=' + i + '><img src="img/' + fastlinkerData[i].iconName + '.ico" class="radiuscenter" />' + fastlinkerData[i].name + '</li>';
+    for (i = 0; i < fastlinkerData.length; ++i) {
+        if (fastlinkerList.indexOf(i) !== -1) continue;
+        str += '<li class="sort" value=' + i + '><img src="img/' + fastlinkerData[i].iconName + '.ico" class="radius_center"  alt="图标" />' + fastlinkerData[i].name + '</li>';
     }
     str += '</ul></div>'
     html_in.innerHTML = str;
@@ -97,12 +100,12 @@ function fastlinker_preference_init() {
 
 function save_fastlinker_preference() {
     var check = document.getElementsByName("fastlinker_pre")[0].childNodes;
-    fastlinkerList = new Array();
+    fastlinkerList = [];
     for (var i = 0; i < check.length; ++i) {
-        if (check[i].value == -1) break;
+        if (check[i].value === -1) break;
         fastlinkerList.push(check[i].value);
     }
-    if (fastlinkerList.length == 0) {
+    if (fastlinkerList.length === 0) {
         setCookie('FL', -1);
     } else {
         setCookie('FL', fastlinkerList.join(','));

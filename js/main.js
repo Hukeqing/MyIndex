@@ -29,8 +29,8 @@ function init() {
 }
 
 window.onresize = function () {
-    var minwidth = 70;
-    var maxmum = Math.floor(document.body.clientHeight / 90);
-    var curwidth = Math.ceil(fastlinkerNum / maxmum) * minwidth;
+    let minwidth = 70;
+    let maxmum = Math.floor(document.body.clientHeight / 90);
+    let curwidth = Math.ceil(fastlinkerList.length / maxmum) * minwidth;
     document.getElementById('fastlinker').style.width = curwidth.toString() + "px";
 };

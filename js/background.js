@@ -1,11 +1,11 @@
-var len = 16;
-var cur = -1;
-var dislikeBG = 0;
-var dict = new Array();
+let len = 16;
+let cur = -1;
+let dislikeBG = 0;
+const dict = [];
 
 function changeBackground() {
     var ans = Math.floor(Math.random() * dict.length);
-    while (ans == cur) {
+    while (ans === cur) {
         ans = Math.floor(Math.random() * dict.length);
     }
     console.log(dict[ans])
@@ -15,7 +15,7 @@ function changeBackground() {
 
 function initBG() {
     initBGCookie();
-    for (var i = 0; i < len; ++i) {
+    for (let i = 0; i < len; ++i) {
         if ((1 << i) & dislikeBG) continue;
         dict.push(i);
     }
@@ -23,7 +23,7 @@ function initBG() {
 }
 
 function addDislike() {
-    if (dict.length == 1) {
+    if (dict.length === 1) {
         window.alert("没有更多的壁纸啦！");
     } else {
         dislikeBG |= 1 << cur;

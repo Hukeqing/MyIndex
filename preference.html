@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="utf-8"/>
+    <link rel="icon" type="image/x-ico" href="favicon.ico"/>
 
     <link rel="stylesheet" href="css/button.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="css/checkbox.css" type="text/css" media="all"/>
@@ -61,12 +62,12 @@
 <script>
     search_preference_init();
     fastlinker_preference_init();
-    $(".sort").mouseenter(function () {
-        $(this).addClass("sort_on");
-    }).mouseleave(function () {
-        $(this).removeClass("sort_on");
-    })
     $(function () {
+        $(".sort").mouseenter(function () {
+            $(this).addClass("sort_on");
+        }).mouseleave(function () {
+            $(this).removeClass("sort_on");
+        })
         $("#sortable1, #sortable2").sortable({
             connectWith: ".connectedSortable",
             placeholder: "placeholder"
