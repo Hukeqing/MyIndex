@@ -1,8 +1,8 @@
 div.footer {
     position: fixed;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 80px;
     z-index: 9999;
@@ -16,7 +16,7 @@ div.footer {
     font-weight: 700;
 }
 
-a.noline {
+a.no-line {
     text-decoration: none;
     /* cursor: default; */
 }
@@ -39,10 +39,7 @@ div.sort {
 div.sort ul {
     background: #eee;
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    margin-right: 10px;
-    background: #eee;
+    margin: 0 10px 0 0;
     padding: 5px;
 }
 

@@ -1,17 +1,17 @@
-<html>
+<html lang="zh-CN">
 
 <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/x-ico" href="favicon.ico" />
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/x-ico" href="favicon.ico"/>
 
-    <link rel="stylesheet" href="css/button.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/clock.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/fastlinker.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/input.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/lock.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/main.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/music.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/search.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/button.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/clock.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/fastlinker.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/input.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/lock.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/music.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="css/search.css" type="text/css" media="all"/>
 
     <script type="text/javascript" src="js/extra/angular.radialIndicator.js"></script>
     <script type="text/javascript" src="js/extra/radialIndicator.js"></script>
@@ -34,30 +34,31 @@
 </head>
 
 <body id='body'>
-    <div id='search-div' class="search-box">
-        <select id="selects" class="search-sel" onchange="changes()">
-        </select>
-        <input id="input" class="search-txt" type="text" name="" placeholder="Search in Google">
-        <a id="button" class="search-btn" href="" target="_blank" onclick="searchs()">
-            <img src="basic/search.png" style="width: 20px; height: 20px;" />
-        </a>
-    </div>
-    <div onclick="" style="width: 150px; height: 150px;">
-        <div id="clock" class="clock"></div>
-    </div>
-    <div class="fastlinker" id="fastlinker">
-    </div>
-    <div class="buttonDiv">
-        <button class="fill" onclick="changeBackground()" style="font-weight: 800; color: white;">Change</button>
-        <button class="fill" onclick="downloadImg()" style="font-weight: 800; color: white;">download</button>
-        <button class="fill" onclick="addDislike()" style="font-weight: 800; color: white;">dislike</button>
-        <button class="fill" onclick="clearCookie()" style="font-weight: 800; color: white;">clear</button>
-        <button class="fill" onclick="window.location.href='preference.html';"
-            style="font-weight: 800; color: white;">preference</button>
-    </div>
-    <script>
-        init();
-    </script>
+<div id='search-div' class="search-box">
+    <label for="selects"></label><select id="selects" class="search-sel" onchange="changes()">
+</select>
+    <label for="input"></label><input id="input" class="search-txt" type="text" name="" placeholder="Search in Google">
+    <a id="button" class="search-btn" href="" target="_blank" onclick="searchs()">
+        <img src="basic/search.png" style="width: 20px; height: 20px;" alt="搜索"/>
+    </a>
+</div>
+<div onclick="" style="width: 150px; height: 150px;">
+    <div id="clock" class="clock"></div>
+</div>
+<div class="fastlinker" id="fastlinker">
+</div>
+<div class="buttonDiv">
+    <button class="fill" onclick="changeBackground()" style="font-weight: 800; color: white;">Change</button>
+    <button class="fill" onclick="downloadImg()" style="font-weight: 800; color: white;">download</button>
+    <button class="fill" onclick="addDislike()" style="font-weight: 800; color: white;">dislike</button>
+    <button class="fill" onclick="clearCookie()" style="font-weight: 800; color: white;">clear</button>
+    <button class="fill" onclick="window.location.href='preference.html';"
+            style="font-weight: 800; color: white;">preference
+    </button>
+</div>
+<script>
+    init();
+</script>
 </body>
 
 </html>
