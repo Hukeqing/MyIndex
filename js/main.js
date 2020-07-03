@@ -3,15 +3,7 @@ document.onkeydown = function EnterPress(e) {
         searchs();
         window.open(But.href);
     }
-    // if (e.keyCode === 8 || e.keyCode === 27) {
-    //     LockScreen(false);
-    // }
 };
-// window.addEventListener('message', function (e) {
-//     if (e.data === 'endLock') {
-//         UNLockScreen();
-//     }
-// }, false);
 
 // 防止因为标签页转换后，时钟不再刷新
 document.addEventListener('visibilitychange', function () {

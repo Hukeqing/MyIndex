@@ -4,13 +4,13 @@
     right: 0;
     top: 0;
     bottom: 0;
-    transition: 0.8s;
+    /*transition: 0.8s;*/
     background-color: rgba(96, 96, 96, 0.5);
 }
 
-.fastlinker:hover {
-    opacity: 1;
-}
+/*.fastlinker:hover {*/
+/*    opacity: 1;*/
+/*}*/
 
 .fastlinker div {
     width: 50px;

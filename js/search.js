@@ -6,7 +6,7 @@ let SearchEg = [];
 let curSearch = 0;
 
 function createSearchEg(name, urls, se) {
-    var object = {};
+    let object = {};
     object.name = name;
     object.urls = urls;
     object.search_engine = se;
@@ -76,8 +76,8 @@ function initSearchCookie() {
 function search_preference_init() {
     let i;
     search_data_init();
-    var html_in = document.getElementById("search_preference");
-    var str = '';
+    let html_in = document.getElementById("search_preference");
+    let str = '';
     for (i = 0; i < SearchEg.length; ++i) {
         str += '<label><input type="checkbox" name="search_pre" value="' + i + '" ' + (((1 << i) & dislikeSearch) ? '' : 'checked') + ' />' + SearchEg[i].name + '</label><br>';
     }
