@@ -7,9 +7,11 @@
     transition: 0.8s;
     background-color: rgba(96, 96, 96, 0.5);
 }
+
 .fastlinker:hover {
     opacity: 1;
 }
+
 .fastlinker div {
     width: 50px;
     height: 50px;
@@ -24,13 +26,15 @@
     display: flex;
     float: left;
 }
+
 .fastlinker p {
     font-size: 15px;
     text-overflow: ellipsis;
     width: 70px;
     text-align: center;
-    overflow:hidden;
+    overflow: hidden;
 }
+
 .fastlinker a {
     text-decoration: none;
     /* font-family: 'STHeiti'; */
@@ -38,6 +42,7 @@
     font-weight: 600;
     color: white;
 }
+
 img.radius_center {
     display: block;
     margin-top: 13px;

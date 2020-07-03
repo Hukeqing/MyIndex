@@ -60,7 +60,6 @@ function fastlinker_data_init() {
 function fastlinker_init() {
     fastlinker_data_init();
     fl = document.getElementById("fastlinker");
-    // TODO: add support for new fastlinker
     for (var i = 0; i < fastlinkerList.length; ++i) {
         var cur = fastlinkerList[i];
         fl.innerHTML += '<div><a href="' + fastlinkerData[cur].urls + '" target="_blank"><img src="img/' + fastlinkerData[cur].iconName + '.ico" class="radius_center"  alt="快捷方式"/><p>' + fastlinkerData[cur].name + '</p></a></div>';

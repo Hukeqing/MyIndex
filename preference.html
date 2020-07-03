@@ -35,7 +35,7 @@
     </fieldset>
     <fieldset>
         <h2>快捷方式偏好设置：</h2>
-        <h4 style="color: red; font-weight: bold">注意：实际使用时会根据您当前的浏览器高度以及您选择的数量进行横向排序</h4>
+        <h4 style="color: red; font-weight: bold">注意：实际使用时会根据您当前的浏览器高度以及您选择的数量进行横向布局</h4>
         <div id='fastlinker_preference'>
         </div>
     </fieldset>
@@ -67,6 +67,10 @@
             $(this).addClass("sort_on");
         }).mouseleave(function () {
             $(this).removeClass("sort_on");
+        }).mousedown(function () {
+            $(this).addClass("sort_on_drag");
+        }).mouseup(function () {
+            $(this).removeClass("sort_on_drag");
         })
         $("#sortable1, #sortable2").sortable({
             connectWith: ".connectedSortable",

@@ -18,17 +18,12 @@ div.footer {
 
 a.no-line {
     text-decoration: none;
-    /* cursor: default; */
 }
 
 img.radius_center {
-    /* display: block; */
-    /* margin-top: 13px; */
-    /* margin-left: 23px; */
     width: 24px;
     height: 24px;
     border-radius: 20%;
-    /* background-color: darkgrey; */
 }
 
 div.sort {
@@ -48,14 +43,17 @@ li.sort {
     width: 100px;
     height: 30px;
     cursor: pointer;
+    background: #ffffff;
 }
 
 li.sort_on {
-    border: 3px solid blue;
-    width: 120px;
-    cursor: pointer;
+    background: #00faff;
 }
 
+li.sort_on_drag {
+    cursor: move;
+    background: #00ff96;
+}
 li.placeholder {
     height: 15px;
     background: rgb(255, 255, 119);
